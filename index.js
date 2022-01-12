@@ -163,30 +163,21 @@ If you have any questions regarding this project please feel free to reach out a
 let writeToFile = function() { 
   promptUser()
     .then((answers) => {
-      if( answers.license = "Apache"){
+      if( answers.license == "Apache"){
         badge = apacheBadge
         license = apcacheLicense(answers)
       }
-      else if( answers.license = "Boost"){
+      else if( answers.license == "Boost"){
         badge = boostBadge
         license = boostLicense
-        
       }
       else {
         badge = bsd3Badge
         license = bsd3License(answers)
       }
       writeFileAsync('./dist/README.md', readMeMaker(answers))
-          
-            
+      console.log('Successfully wrote to the dist folder!')        
     })
-    .then(() => console.log('Successfully wrote to the dist folder!'))
-    .catch((err) => console.error(err)); 
-
-
-  
-
-
 }
 
 // Create a function to initialize app
